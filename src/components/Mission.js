@@ -8,7 +8,7 @@ const Mission = ({ mission }) => (
       <button type="button" className="btn-member">NOT A MEMBER</button>
     </div>
     <div className="list__item-join">
-      <button type="button" className="btn-join">Join Mission</button>  
+      <button type="button" className="btn-join">Join Mission</button>
     </div>
   </li>
 );
