@@ -1,0 +1,168 @@
+.navbar__box {
+  height: 60px;
+  padding: 0.5rem 5%;
+  background-color: $white;
+  box-shadow: 0 1px 5px rgba($gray-dark, 0.25);
+
+  @include flex-row;
+
+  justify-content: space-between;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+
+  @include mq($mw:56.25rem) {
+    padding: 0.5rem 10%;
+  }
+}
+
+.navbar__brand {
+  margin-right: 2rem;
+  color: $accent;
+  text-decoration: none;
+
+  @include font($fs:1rem, $lh:1.1rem, $fw:600);
+
+  @include flex-row;
+  @include flex-center;
+
+  img {
+    height: 50px;
+    width: auto;
+    margin-right: 0.25rem;
+  }
+}
+
+.navbar__menu-button {
+  width: 2rem;
+  height: 2rem;
+  background-color: transparent;
+  border: none;
+  display: flex;
+
+  @include flex-center;
+
+  cursor: pointer;
+
+  @include mq($mw: 43.75rem) {
+    display: none;
+  }
+}
+
+.navbar__menu-bar {
+  width: 26px;
+  height: 3px;
+  background-color: $gray-dark;
+  position: relative;
+  transition: transform 500ms ease;
+
+  &::before,
+  &::after {
+    display: table;
+    content: '';
+    height: 3px;
+    width: 100%;
+    position: absolute;
+    background-color: $gray-dark;
+    transition: transform 500ms ease;
+  }
+
+  &::before {
+    top: -8px;
+  }
+
+  &::after {
+    top: 8px;
+  }
+}
+
+.navbar__menu-button-modal {
+  position: fixed;
+  top: 1.25rem;
+  right: 1.5rem;
+  z-index: 12;
+
+  .navbar__menu-bar {
+    background-color: $white;
+    transform: rotate(45deg);
+
+    &::before {
+      background-color: $white;
+      top: 0;
+      transform: rotate(90deg);
+    }
+
+    &::after {
+      background-color: $white;
+      top: 0;
+      transform: rotate(90deg);
+    }
+  }
+}
+
+.navbar__menu-nav-modal {
+  height: 100vh;
+  padding: 6rem 0 0 0;
+  background-color: $accent;
+
+  @include flex-column;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 11;
+
+  > * {
+    width: 100%;
+    padding: 2rem;
+    border-bottom: 1px solid rgba($white, 0.25);
+    border-left: none;
+
+    .nav-link {
+      font-size: 1.75rem;
+      font-weight: 300;
+      color: $white;
+
+      &.active {
+        font-weight: 500;
+        color: $white;
+      }
+    }
+  }
+}
+
+.navbar__menu-list {
+  list-style: none;
+  display: none;
+
+  > * {
+    padding: 0 1rem;
+    
+    .nav-link {
+      font-size: 0.85rem;
+      line-height: 1.2;
+      color: rgba($green-light, 0.75);
+      font-weight: 500;
+      text-decoration: none;
+      transition: color 250ms ease-in;
+      
+      &:hover,
+      &.active {
+        color: $green-dark;
+      }
+    }
+    
+    &:last-child {
+      border-left: 1px solid rgba($gray-dark, 0.5);
+    }
+  }
+
+  @include mq($mw: 43.75rem) {
+    @include flex-row;
+  }
+}

@@ -1,0 +1,96 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: $gray-light;
+
+  @include font;
+  @include flex-column;
+
+  color: $dark;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  #root {
+    width: 100%;
+    padding-top: 60px;
+    position: relative;
+  }
+
+  h1,
+  h2,
+  h3 {
+    line-height: normal;
+  }
+
+  section {
+    padding: 1.5rem 5%;
+    border-bottom: 1px solid rgba($gray-dark, 0.5);
+
+    &:last-of-type {
+      border-bottom: none;
+    }
+
+    .section__title {
+      margin-bottom: 1.5rem;
+    }
+
+    @include mq($mw:43.75rem) {
+      padding: 1.5rem 10%;
+    }
+  }
+
+  button {
+    width: auto;
+    max-width: 150px;
+    padding: 0.4rem 0.75rem;
+    border-radius: 5px;
+
+    @include font;
+
+    font-weight: 400;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: border, background-color ease-in-out 250ms;
+  }
+
+  .btn-blue {
+    background-color: $accent;
+    border: 1px solid $accent;
+    color: $white;
+
+    &:hover {
+      background-color: $accent-light;
+      border: 1px solid $accent-light;
+    }
+  }
+
+  .btn-notmember {
+    padding: 0.15rem 0.25rem;
+    background-color: $gray-dark;
+    border: 1px solid $gray-dark;
+    color: $white;
+
+    &:hover {
+      background-color: $green-dark;
+      border: 1px solid $green-dark;
+    }
+  }
+
+  .btn-notjoin {
+    background-color: transparent;
+    border: 1px solid $gray-dark;
+    color: $gray-dark;
+
+    &:hover {
+      border: 1px solid $accent;
+      color: $accent;
+    }
+  }
+}
