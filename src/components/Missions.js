@@ -1,30 +1,33 @@
 import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Mission from './Mission';
 import { getMissionsAPI } from '../redux/missions/missionsReducer';
 
 const Missions = () => {
   const dispatch = useDispatch();
+  const missionsList = useSelector((state) => state.missionsReducer);
 
   useEffect(() => {
-    dispatch(getMissionsAPI());
+    if (missionsList.length === 0) dispatch(getMissionsAPI());
   }, []);
-
-  const missionsList = [];
 
   return (
     <section className="page__section">
-      <ul className="mission__list">
-        <li className="mission-list-item">
-          <div className="list__item-mission"><h3>Mission</h3></div>
-          <div className="list__item-description"><h3>Description</h3></div>
-          <div className="list__item-status"><h3>Status</h3></div>
-          <div className="list__item-join" />
-        </li>
-        {
-          missionsList.map((mission) => <Mission key={mission.mission_id} mission={mission} />)
-        }
-      </ul>
+      <table className="mission__table">
+        <thead className="mission__table-head">
+          <tr className="mission__table-row">
+            <td className="table__row-mission"><h3>MISSION</h3></td>
+            <td className="table__row-description"><h3>DESCRIPTION</h3></td>
+            <td className="table__row-status"><h3>STATUS</h3></td>
+            <td className="table__row-join" />
+          </tr>
+        </thead>
+        <tbody className="mission__table-body">
+          {
+            missionsList.map((mission) => <Mission key={mission.mission_id} mission={mission} />)
+          }
+        </tbody>
+      </table>
     </section>
   );
 };

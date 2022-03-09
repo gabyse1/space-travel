@@ -2,7 +2,7 @@ import { PropTypes } from 'prop-types';
 
 const Rocket = ({ rocket }) => (
   <li className="rocket__list-item">
-    <div className="list_item-image">
+    <div className="list__item-image">
       <img src={rocket.flickr_images[0]} alt={rocket.flickr_images[0]} />
     </div>
     <div className="list__item-details">

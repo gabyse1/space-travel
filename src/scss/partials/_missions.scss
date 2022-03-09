@@ -1,0 +1,71 @@
+.mission__table {
+  list-style: none;
+
+  > * {
+    width: 100%;
+  }
+
+  .mission__table-row {
+    width: 100%;
+    padding: 1rem;
+    margin: 0.5rem 0;
+    background-color: $white;
+    border: 1px solid rgba($gray-dark, 0.25);
+
+    @include flex-column;
+
+    > * {
+      width: 100%;
+      margin-bottom: 0.5rem;
+    }
+
+    &:nth-child(odd) {
+      background-color: rgba($gray-dark, 0.1);
+    }
+
+    @include mq($mw: 43.75rem) {
+      padding: 0;
+      margin: 0;
+      flex-direction: row;
+      justify-content: center;
+      align-items: stretch;
+      border: none;
+
+      > * {
+        width: auto;
+        padding: 1rem;
+        margin-bottom: 0;
+        border: 1px solid rgba($gray-dark, 0.25);
+      }
+
+      .table__row-mission,
+      .table__row-status,
+      .table__row-join {
+        width: 15%;
+      }
+
+      .table__row-description {
+        width: 55%;
+      }
+
+      .table__row-status,
+      .table__row-join {
+        display: flex;
+
+        @include flex-center;
+      }
+    }
+  }
+
+  .mission__table-head {
+    display: none;
+
+    .mission__table-row {
+      background-color: $white;
+    }
+
+    @include mq($mw: 43.75rem) {
+      display: flex;
+    }
+  }
+}

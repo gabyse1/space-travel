@@ -1,0 +1,8 @@
+.footer__box {
+  height: 40px;
+  padding: 0.5rem 1rem;
+  background-color: $gray-light;
+
+  @include flex-row;
+  @include flex-center;
+}
