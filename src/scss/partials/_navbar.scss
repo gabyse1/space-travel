@@ -25,7 +25,6 @@
   text-decoration: none;
 
   @include font($fs:1rem, $lh:1.1rem, $fw:600);
-
   @include flex-row;
   @include flex-center;
 
@@ -142,7 +141,7 @@
 
   > * {
     padding: 0 1rem;
-    
+
     .nav-link {
       font-size: 0.85rem;
       line-height: 1.2;
@@ -150,13 +149,13 @@
       font-weight: 500;
       text-decoration: none;
       transition: color 250ms ease-in;
-      
+
       &:hover,
       &.active {
         color: $green-dark;
       }
     }
-    
+
     &:last-child {
       border-left: 1px solid rgba($gray-dark, 0.5);
     }

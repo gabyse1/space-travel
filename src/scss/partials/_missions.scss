@@ -13,7 +13,7 @@
     border: 1px solid rgba($gray-dark, 0.25);
 
     @include flex-column;
-    
+
     > * {
       width: 100%;
       margin-bottom: 0.5rem;
@@ -51,6 +51,7 @@
       .table__row-status,
       .table__row-join {
         display: flex;
+
         @include flex-center;
       }
     }
