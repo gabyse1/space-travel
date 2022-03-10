@@ -1,12 +1,13 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { setRocketsReserved } from '../redux/rockets/rocketsReducer';
+import { setRocketsReserved, setRocketsUnreserved } from '../redux/rockets/rocketsReducer';
 
 const Rocket = ({ rocket }) => {
   const dispatch = useDispatch();
 
   const toggleReservation = (e) => {
-    dispatch(setRocketsReserved(+e.target.dataset.id));
+    if (!rocket.reserved) dispatch(setRocketsReserved(+e.target.dataset.id));
+    else dispatch(setRocketsUnreserved(+e.target.dataset.id));
   };
 
   return (

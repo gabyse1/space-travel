@@ -2,6 +2,7 @@ const baseURL = 'https://api.spacexdata.com/v3/dragons';
 
 const GET_DRAGONS_FROM_API = 'dragonStore/dragons/GET_DRAGONS_FROM_API';
 const SET_DRAGONS_RESERVED = 'dragonStore/dragons/SET_DRAGONS_RESERVED';
+const SET_DRAGONS_UNRESERVED = 'dragonStore/dragons/SET_DRAGONS_UNRESERVED';
 
 const initializeState = [];
 
@@ -19,9 +20,6 @@ const getDragonsAPI = () => async (dispatch) => {
         dry_mass_kg: obj.dry_mass_kg,
         dry_mass_lb: obj.dry_mass_lb,
         first_flight: obj.first_flight,
-        material: obj.heat_shield.material,
-        size_meters: obj.heat_shield.size_meters,
-        temp_degrees: obj.heat_shield.temp_degrees,
         dev_partner: obj.heat_shield.dev_partner,
       }));
       dispatch({
@@ -32,6 +30,7 @@ const getDragonsAPI = () => async (dispatch) => {
 };
 
 const setDragonsReserved = (dragonId) => ({ type: SET_DRAGONS_RESERVED, payload: dragonId });
+const setDragonsUnreserved = (dragonId) => ({ type: SET_DRAGONS_UNRESERVED, payload: dragonId });
 
 const dragonsReducer = (state = initializeState, action) => {
   switch (action.type) {
@@ -42,6 +41,11 @@ const dragonsReducer = (state = initializeState, action) => {
         ? { ...obj, reserved: true } : obj));
       return newState;
     }
+    case SET_DRAGONS_UNRESERVED: {
+      const newState = state.map((obj) => (obj.id === action.payload
+        ? { ...obj, reserved: false } : obj));
+      return newState;
+    }
     default:
       return state;
   }
@@ -50,6 +54,7 @@ const dragonsReducer = (state = initializeState, action) => {
 export {
   getDragonsAPI,
   setDragonsReserved,
+  setDragonsUnreserved,
 };
 
 export default dragonsReducer;

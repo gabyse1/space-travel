@@ -1,12 +1,13 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { setMissionsJoin } from '../redux/missions/missionsReducer';
+import { setMissionsJoin, setMissionsUnjoin } from '../redux/missions/missionsReducer';
 
 const Mission = ({ mission }) => {
   const dispatch = useDispatch();
 
   const toggleJoining = (e) => {
-    dispatch(setMissionsJoin(e.target.dataset.id));
+    if (!mission.reserved) dispatch(setMissionsJoin(e.target.dataset.id));
+    else dispatch(setMissionsUnjoin(e.target.dataset.id));
   };
 
   return (
@@ -28,6 +29,7 @@ Mission.propTypes = {
     mission_id: PropTypes.string.isRequired,
     mission_name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    reserved: PropTypes.bool,
   }).isRequired,
 };
 
