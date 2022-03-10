@@ -2,6 +2,7 @@ const baseURL = 'https://api.spacexdata.com/v3/rockets';
 
 const GET_ROCKETS_FROM_API = 'rocketStore/rockets/GET_ROCKETS_FROM_API';
 const SET_ROCKETS_RESERVED = 'rocketStore/rockets/SET_ROCKETS_RESERVED';
+const SET_ROCKETS_UNRESERVED = 'rocketStore/rockets/SET_ROCKETS_UNRESERVED';
 
 const initializeState = [];
 
@@ -23,6 +24,7 @@ const getRocketsAPI = () => async (dispatch) => {
 };
 
 const setRocketsReserved = (rocketId) => ({ type: SET_ROCKETS_RESERVED, payload: rocketId });
+const setRocketsUnreserved = (rocketId) => ({ type: SET_ROCKETS_UNRESERVED, payload: rocketId });
 
 const rocketsReducer = (state = initializeState, action) => {
   switch (action.type) {
@@ -33,6 +35,11 @@ const rocketsReducer = (state = initializeState, action) => {
         ? { ...obj, reserved: true } : obj));
       return newState;
     }
+    case SET_ROCKETS_UNRESERVED: {
+      const newState = state.map((obj) => (obj.id === action.payload
+        ? { ...obj, reserved: false } : obj));
+      return newState;
+    }
     default:
       return state;
   }
@@ -41,6 +48,7 @@ const rocketsReducer = (state = initializeState, action) => {
 export {
   getRocketsAPI,
   setRocketsReserved,
+  setRocketsUnreserved,
 };
 
 export default rocketsReducer;
