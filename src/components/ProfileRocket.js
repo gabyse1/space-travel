@@ -31,7 +31,7 @@ const ProfileRocket = () => {
       <h2>My Rockets</h2>
       <ul className="profile__list">
         {
-          myRockets && myRockets.filter((obj) => obj.reserved).map((obj) => <li key={obj.id} className="profile__list-item">{obj.rocket_name}</li>)
+          myRockets.length > 0 ? myRockets.filter((obj) => obj.reserved).map((obj) => <li key={obj.id} className="profile__list-item">{obj.rocket_name}</li>) : <p>You haven&apos;t booked any rockets yet.</p>
         }
       </ul>
     </div>
