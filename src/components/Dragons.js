@@ -13,7 +13,7 @@ const Dragons = () => {
 
   return (
     <section className="page__section">
-      <ul className="dragon__list rocket__list">
+      <ul className="dragon__list">
         {
           dragonsList && dragonsList.map((dragon) => <Dragon key={dragon.id} dragon={dragon} />)
         }
