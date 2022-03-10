@@ -1,0 +1,45 @@
+.section__profile {
+  width: 100%;
+
+  @include flex-column;
+
+  > * {
+    width: 100%;
+    margin-bottom: 2rem;
+
+    h2 {
+      margin-bottom: 1rem;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    .profile__list {
+      width: 100%;
+      list-style: none;
+
+      .profile__list-item {
+        width: inherit;
+        padding: 0.5rem;
+        border: 1px solid $gray-dark;
+      }
+    }
+  }
+
+  @include mq($mw: 43.75rem) {
+    @include flex-row;
+    @include flex-center;
+
+    > * {
+      width: 50%;
+      max-width: 400px;
+      margin-bottom: 0;
+      padding-right: 2rem;
+
+      &:last-child {
+        padding-right: 0;
+      }
+    }
+  }
+}

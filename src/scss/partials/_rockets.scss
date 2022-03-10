@@ -40,25 +40,6 @@
       }
     }
 
-    @include mq ($mw:31.25rem) {
-      &.dragon__list-item {
-        @include flex-row;
-
-        align-items: center;
-        padding: 1rem 2rem;
-
-        > * {
-          width: auto;
-          padding-right: 1rem;
-          margin-bottom: 0;
-
-          &:last-child {
-            padding-right: 0;
-          }
-        }
-      }
-    }
-
     @include mq ($mw:43.75rem) {
       @include flex-row;
 
