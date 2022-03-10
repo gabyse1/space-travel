@@ -3,7 +3,7 @@ import ProfileMission from './ProfileMission';
 import ProfileDragon from './ProfileDragon';
 
 const Profile = () => (
-  <section className="page__section">
+  <section className="page__section section__profile">
     <ProfileRocket />
     <ProfileMission />
     <ProfileDragon />

@@ -49,47 +49,43 @@ body {
   button {
     width: auto;
     max-width: 150px;
-    padding: 0.4rem 0.75rem;
+    padding: 0.4rem 0.5rem;
     border-radius: 5px;
 
     @include font;
 
-    font-weight: 400;
+    font-weight: 500;
     font-size: 0.875rem;
     cursor: pointer;
     transition: border, background-color ease-in-out 250ms;
   }
 
   .btn-blue {
-    background-color: $accent;
-    border: 1px solid $accent;
-    color: $white;
+    background-color: transparent;
+    border: 1.5px solid $accent;
+    color: $accent;
 
     &:hover {
-      background-color: $accent-light;
-      border: 1px solid $accent-light;
+      background-color: $accent;
+      color: $white;
     }
   }
 
   .btn-notmember {
     padding: 0.15rem 0.25rem;
     background-color: $gray-dark;
-    border: 1px solid $gray-dark;
+    border: none;
     color: $white;
-
-    &:hover {
-      background-color: $green-dark;
-      border: 1px solid $green-dark;
-    }
+    cursor: auto;
   }
 
   .btn-notjoin {
     background-color: transparent;
-    border: 1px solid $gray-dark;
+    border: 1.5px solid $gray-dark;
     color: $gray-dark;
 
     &:hover {
-      border: 1px solid $accent;
+      border: 1.5px solid $accent;
       color: $accent;
     }
   }
