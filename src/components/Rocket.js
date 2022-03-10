@@ -1,19 +1,29 @@
 import { PropTypes } from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { setRocketsReserved } from '../redux/rockets/rocketsReducer';
 
-const Rocket = ({ rocket }) => (
-  <li className="rocket__list-item">
-    <div className="list__item-image">
-      <img src={rocket.flickr_images[0]} alt={rocket.flickr_images[0]} />
-    </div>
-    <div className="list__item-details">
-      <h2>{rocket.rocket_name}</h2>
-      <p>
-        {rocket.description}
-      </p>
-      <button type="button" className="btn-blue">Reserve Rocket</button>
-    </div>
-  </li>
-);
+const Rocket = ({ rocket }) => {
+  const dispatch = useDispatch();
+
+  const toggleReservation = (e) => {
+    dispatch(setRocketsReserved(+e.target.dataset.id));
+  };
+
+  return (
+    <li className="rocket__list-item">
+      <div className="list__item-image">
+        <img src={rocket.flickr_images[0]} alt={rocket.flickr_images[0]} />
+      </div>
+      <div className="list__item-details">
+        <h2>{rocket.rocket_name}</h2>
+        <p>
+          {rocket.description}
+        </p>
+        <button type="button" className="btn-blue" data-id={rocket.id} onClick={toggleReservation}>Reserve Rocket</button>
+      </div>
+    </li>
+  );
+};
 
 Rocket.propTypes = {
   rocket: PropTypes.shape({
