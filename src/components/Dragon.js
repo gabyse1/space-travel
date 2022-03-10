@@ -1,12 +1,13 @@
 import { PropTypes } from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { setDragonsReserved } from '../redux/dragons/dragonsReducer';
+import { setDragonsReserved, setDragonsUnreserved } from '../redux/dragons/dragonsReducer';
 
 const Dragon = ({ dragon }) => {
   const dispatch = useDispatch();
 
   const toggleReservation = (e) => {
-    dispatch(setDragonsReserved(e.target.dataset.id));
+    if (!dragon.reserved) dispatch(setDragonsReserved(e.target.dataset.id));
+    else dispatch(setDragonsUnreserved(e.target.dataset.id));
   };
   return (
     <li className="dragon__list-item">
@@ -51,11 +52,9 @@ Dragon.propTypes = {
     first_flight: PropTypes.string.isRequired,
     dry_mass_lb: PropTypes.number.isRequired,
     dry_mass_kg: PropTypes.number.isRequired,
-    material: PropTypes.string.isRequired,
-    size_meters: PropTypes.number.isRequired,
-    temp_degrees: PropTypes.number.isRequired,
     dev_partner: PropTypes.string.isRequired,
     flickr_images: PropTypes.arrayOf(PropTypes.string).isRequired,
+    reserved: PropTypes.bool,
   }).isRequired,
 };
 
