@@ -62,6 +62,11 @@
 
     .mission__table-row {
       background-color: $white;
+      
+      td {
+        display: flex;
+        @include flex-center;
+      }
     }
 
     @include mq($mw: 43.75rem) {
