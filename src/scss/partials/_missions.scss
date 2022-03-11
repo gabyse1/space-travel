@@ -62,9 +62,10 @@
 
     .mission__table-row {
       background-color: $white;
-      
+
       td {
         display: flex;
+
         @include flex-center;
       }
     }

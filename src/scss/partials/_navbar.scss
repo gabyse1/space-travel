@@ -118,20 +118,27 @@
       text-decoration: none;
       transition: color 250ms ease-in;
 
-      &:hover,
       &.active {
         color: $accent;
       }
-    }
-
-    &:last-child {
-      padding-right: 0;
-      border-left: 1px solid rgba($gray-dark, 0.5);
     }
   }
 
   @include mq($mw: 43.75rem) {
     @include flex-row;
+
+    > * {
+      .nav-link {
+        &:hover {
+          color: $accent;
+        }
+      }
+
+      &:last-child {
+        padding-right: 0;
+        border-left: 1px solid rgba($gray-dark, 0.5);
+      }
+    }
   }
 }
 
