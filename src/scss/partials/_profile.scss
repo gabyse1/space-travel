@@ -6,6 +6,9 @@
   > * {
     width: 100%;
     margin-bottom: 2rem;
+    padding: 1rem;
+    background-color: $white;
+    border: 1px solid rgba($gray-dark, 0.25);
 
     h2 {
       margin-bottom: 1rem;
@@ -22,23 +25,29 @@
       .profile__list-item {
         width: inherit;
         padding: 0.5rem;
-        border: 1px solid $gray-dark;
+        border: 1px solid rgba($gray-dark, 0.25);
+
+        &:nth-child(odd) {
+          background-color: rgba($gray-dark, 0.15);
+        }
       }
     }
   }
 
   @include mq($mw: 43.75rem) {
     @include flex-row;
-    @include flex-center;
 
     > * {
-      width: 50%;
+      width: 33%;
       max-width: 400px;
-      margin-bottom: 0;
-      padding-right: 2rem;
+      margin: 0 0.5rem;
+
+      &:first-child {
+        margin-left: 0;
+      }
 
       &:last-child {
-        padding-right: 0;
+        margin-right: 0;
       }
     }
   }
