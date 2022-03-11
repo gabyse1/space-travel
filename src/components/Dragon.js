@@ -15,7 +15,10 @@ const Dragon = ({ dragon }) => {
         <img src={dragon.flickr_images[0]} alt={dragon.flickr_images[0]} />
         <h2>{dragon.name}</h2>
         <h3>{dragon.type}</h3>
-        <p>{dragon.description}</p>
+        <p>
+          {dragon.reserved ? <span className="badge-active">Reserved</span> : null}
+          {dragon.description}
+        </p>
         <ul className="details-more">
           <li>
             <span>First flight: </span>
@@ -37,7 +40,9 @@ const Dragon = ({ dragon }) => {
           </li>
         </ul>
       </div>
-      <button type="button" className="btn-blue" data-id={dragon.id} onClick={toggleReservation}>Reserve Dragon</button>
+      <button type="button" className={dragon.reserved ? 'btn-cancelBooking' : 'btn-booking'} data-id={dragon.id} onClick={toggleReservation}>
+        {dragon.reserved ? 'Cancel Reservation' : 'Reserve Dragon'}
+      </button>
     </li>
   );
 };

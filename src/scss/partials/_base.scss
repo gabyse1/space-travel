@@ -60,7 +60,7 @@ body {
     transition: border, background-color ease-in-out 250ms;
   }
 
-  .btn-blue {
+  .btn-booking {
     background-color: transparent;
     border: 1.5px solid $accent;
     color: $accent;
@@ -71,22 +71,30 @@ body {
     }
   }
 
-  .btn-notmember {
-    padding: 0.15rem 0.25rem;
-    background-color: $gray-dark;
-    border: none;
-    color: $white;
-    cursor: auto;
-  }
-
-  .btn-notjoin {
+  .btn-cancelBooking {
     background-color: transparent;
     border: 1.5px solid $gray-dark;
     color: $gray-dark;
 
     &:hover {
-      border: 1.5px solid $accent;
-      color: $accent;
+      background-color: rgba($gray-dark, 0.75);
+      color: $white;
     }
+  }
+
+  .badge-active,
+  .badge-unactive {
+    padding: 0.15rem 0.25rem;
+    border-radius: 5px;
+    color: $white;
+    text-align: center;
+  }
+
+  .badge-active {
+    background-color: rgba($green-dark, 0.85);
+  }
+
+  .badge-unactive {
+    background-color: $gray-dark;
   }
 }

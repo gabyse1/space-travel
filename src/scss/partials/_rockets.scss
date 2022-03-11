@@ -38,6 +38,10 @@
       > * {
         margin-bottom: 0.5rem;
       }
+
+      .badge-active {
+        margin-right: 0.5rem;
+      }
     }
 
     @include mq ($mw:43.75rem) {

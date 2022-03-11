@@ -2,7 +2,7 @@
 
 $ff: 'Barlow Semi Condensed', sans-serif;
 
-@mixin font($fs:0.875rem, $fw:300, $lh:1.2rem, $ls:normal, $tt:normal) {
+@mixin font($fs:0.875rem, $fw:400, $lh:1.2rem, $ls:normal, $tt:normal) {
   font-family: $ff;
   font-size: $fs;
   font-weight: $fw;
