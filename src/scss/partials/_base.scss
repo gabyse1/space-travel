@@ -19,7 +19,8 @@ body {
 
   #root {
     width: 100%;
-    padding-top: 60px;
+    min-height: 100vh;
+    padding: 60px 0 40px;
     position: relative;
   }
 
