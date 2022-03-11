@@ -1,6 +1,7 @@
 {
   "name": "space-travel",
   "version": "0.1.0",
+  "homepage": "https://spacetravelsgaby.herokuapp.com/",
   "private": true,
   "dependencies": {
     "@redux-devtools/extension": "^3.2.2",
