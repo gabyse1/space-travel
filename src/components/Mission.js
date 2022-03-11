@@ -15,10 +15,14 @@ const Mission = ({ mission }) => {
       <td className="table__row-mission"><h3>{mission.mission_name}</h3></td>
       <td className="table__row-description"><p>{mission.description}</p></td>
       <td className="table__row-status">
-        <button type="button" className="btn-notmember">NOT A MEMBER</button>
+        <span className={mission.reserved ? 'badge-active' : 'badge-unactive'}>
+          {mission.reserved ? 'ACTIVE MEMBER' : 'NOT A MEMBER'}
+        </span>
       </td>
       <td className="table__row-join">
-        <button type="button" className="btn-notjoin" data-id={mission.mission_id} onClick={toggleJoining}>Join Mission</button>
+        <button type="button" className={mission.reserved ? 'btn-cancelBooking' : 'btn-booking'} data-id={mission.mission_id} onClick={toggleJoining}>
+          {mission.reserved ? 'Leave Mission' : 'Join Mission'}
+        </button>
       </td>
     </tr>
   );
