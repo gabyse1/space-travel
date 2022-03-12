@@ -61,7 +61,7 @@ To get a local copy up and running follow these simple example steps.
 👤 **Gabriela Sánchez Espirilla**
 
 - GitHub: [@gabyse1](https://github.com/gabyse1)
-- LinkedIn: [Gabyse](https://www.linkedin.com/in/gabyse/)
+- LinkedIn: [gabyse](https://www.linkedin.com/in/gabyse/)
 - Twitter: [@gabyse0](https://twitter.com/gabyse0)
 
 
@@ -81,4 +81,4 @@ Give a ⭐️ if you like this project!
 
 ## 📝 License
 
-This project is [MIT](./MIT) licensed.
+This project is [MIT](./MIT.md) licensed.
