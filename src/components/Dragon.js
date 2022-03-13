@@ -16,7 +16,7 @@ const Dragon = ({ dragon }) => {
         <h2>{dragon.name}</h2>
         <h3>{dragon.type}</h3>
         <p>
-          {dragon.reserved ? <span className="badge-active">Reserved</span> : null}
+          {dragon.reserved ? <span className="badge-active" data-testid="badgeActive" role="status" aria-live="polite">Reserved</span> : null}
           {dragon.description}
         </p>
         <ul className="details-more">
@@ -40,7 +40,14 @@ const Dragon = ({ dragon }) => {
           </li>
         </ul>
       </div>
-      <button type="button" className={dragon.reserved ? 'btn-cancelBooking' : 'btn-booking'} data-id={dragon.id} onClick={toggleReservation}>
+      <button
+        type="button"
+        className={dragon.reserved ? 'btn-cancelBooking' : 'btn-booking'}
+        data-id={dragon.id}
+        onClick={toggleReservation}
+        data-testid={dragon.id}
+        aria-label={!dragon.reserved ? `Reserve ${dragon.name} dragon` : `Cancel ${dragon.name} dragon reservation`}
+      >
         {dragon.reserved ? 'Cancel Reservation' : 'Reserve Dragon'}
       </button>
     </li>
