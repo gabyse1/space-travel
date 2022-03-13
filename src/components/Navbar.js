@@ -37,7 +37,7 @@ const Navbar = () => {
   return (
     <nav className="navbar__box">
       <NavLink className="navbar__brand nav-link" to="/">
-        <img src={logo} alt="Logo" />
+        <img src={logo} alt="Logo" data-testid="spaceTravelLogo" />
         <span>Space Travelers&apos; Hub</span>
       </NavLink>
       <button className={'navbar__menu-button '.concat(modalMenuIcon)} type="button" aria-label="Toggle navigation" onClick={menuToggle}>
@@ -45,7 +45,7 @@ const Navbar = () => {
       </button>
       <ul className={'navbar__menu-list '.concat(modalMenuList)}>
         {
-          links.map((link) => <li key={link.id} className="navbar__menu-item"><NavLink to={link.path} className="nav-link" onClick={closeModalWindow}>{link.text}</NavLink></li>)
+          links.map((link) => <li key={link.id} className="navbar__menu-item"><NavLink to={link.path} className="nav-link" data-testid={`link${link.text}`} onClick={closeModalWindow}>{link.text}</NavLink></li>)
         }
       </ul>
     </nav>

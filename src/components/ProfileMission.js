@@ -14,7 +14,7 @@ const ProfileMission = () => {
       <ul className="profile__list">
         {
           arrJoined.length > 0
-            ? arrJoined.map((obj) => <li key={obj.mission_id} className="profile__list-item">{obj.mission_name}</li>)
+            ? arrJoined.map((obj) => <li key={obj.mission_id} className="profile__list-item" data-testid="joinedMission">{obj.mission_name}</li>)
             : <p>You haven&apos;t joined any mission yet.</p>
         }
       </ul>

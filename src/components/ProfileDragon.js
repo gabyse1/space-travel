@@ -14,7 +14,7 @@ const ProfileDragon = () => {
       <ul className="profile__list">
         {
           arrReserved.length > 0
-            ? arrReserved.map((obj) => <li key={obj.id} className="profile__list-item">{obj.name}</li>)
+            ? arrReserved.map((obj) => <li key={obj.id} className="profile__list-item" data-testid="reservedDragon">{obj.name}</li>)
             : <p>You haven&apos;t booked any dragons yet.</p>
         }
       </ul>
